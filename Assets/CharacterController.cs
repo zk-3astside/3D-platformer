@@ -13,7 +13,7 @@ public class CharacterController : MonoBehaviour
      bool isOnGround;
      public GameObject groundChecker;
      public LayerMask groundLayer;
-     public float jumpforce = 300.0f
+     public float jumpforce = 300.0f;
 
      
 
@@ -32,7 +32,12 @@ public class CharacterController : MonoBehaviour
     {
          isOnGround = Physics.CheckSphere(groundChecker.transform.position, 0.1f, groundLayer);
 
-        transform.position = transform.position + (transform.forward * Input.GetAxis("Vertical") * maxSpeed + transform.right * Input.GetAxis ("Horizontal") * maxSpeed);
+         if (isOnGround == true && Input.Getkeydown(KeyCode.Space))
+         {
+             myRigidbody.AddForce(transform.up * jumpForce);
+         }
+
+        transform.position = transform.position + (transform.forward * Input.GetAxis("Vertical") * maxSpeed + transform.right * Input.GetAxis ("Horizontal") * maxSpeed) *-1;
     
         Vector3 newVelocity = transform.forward * Input.GetAxis("Vertical") * maxSpeed;
         
