@@ -24,6 +24,8 @@ public class CharacterController : MonoBehaviour
     public float camRotation = 0.0f;
     public float rotationSpeed = 2.0f;
     public float camRotationSpeed = 1.5f;
+    public AudioClip jump;
+    public AudioClip backgroundMusic;
     GameObject cam;
     Rigidbody myRigidbody;
 
@@ -31,6 +33,8 @@ public class CharacterController : MonoBehaviour
     public GameObject groundChecker;
     public LayerMask groundLayer;
     public float jumpForce = 300.0f;
+    public AudioSource sfxPlayer;
+    public AudioSource musicPlayer;
 
     void Update()
     {
